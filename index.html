@@ -227,34 +227,228 @@
         </div>
         <div class="mb-3">
           <label for="message" class="form-label">Message:</label>
-          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-success">Send Message</button>
-      </form>
-    </section>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overseas Clearing and Forwarding (Co.) Ltd</title>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Overseas Clearing and Forwarding (Co.) Ltd. All rights reserved.</p>
-    <div>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-  </footer>
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/256701785963" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+  <style>
+    body { font-family: 'Open Sans', sans-serif; line-height: 1.6; background-color: #f8f9fa; }
+    h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; }
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Thank you for your message! We will get back to you shortly.');
-      });
-    });
-  </script>
+    /* Navbar */
+    .navbar { box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .nav-link { transition: all 0.3s ease; }
+    .nav-link:hover { color: #28a745 !important; transform: scale(1.1); }
+
+    /* Hero */
+    .hero {
+      background: url('https://images.pexels.com/photos/327430/pexels-photo-327430.jpeg') no-repeat center center/cover;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero h1, .hero a { position: relative; z-index: 2; }
+    .cta-button {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .cta-button:hover { background-color: #218838; transform: translateY(-3px); }
+
+    /* Cards */
+    .service { transition: all 0.3s; border: none; }
+    .service:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+    /* About */
+    .about-img { border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+    /* Footer */
+    footer { background: #002147; color: white; padding: 25px 0; }
+    footer a { color: #28a745; margin: 0 10px; transition: color 0.3s; }
+    footer a:hover { color: #fff; }
+
+    /* WhatsApp */
+    .whatsapp-float {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #25d366; color: white;
+      border-radius: 50%; padding: 15px;
+      font-size: 2rem; z-index: 999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .whatsapp-float:hover { transform: scale(1.2); }
+
+    /* Smooth Scroll */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Overseas Clearing & Forwarding</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <h1 class="display-4 fw-bold">Your Trusted Partner in Clearing & Forwarding</h1>
+  <a href="#contact" class="cta-button mt-3 d-inline-block">Get Started</a>
+</section>
+
+<div class="container my-5">
+
+  <!-- Services -->
+  <section id="services">
+    <h2 class="text-center mb-5 fw-bold">Our Services</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card service p-3">
+          <img src="https://images.pexels.com/photos/262353/pexels-photo-262353.jpeg" class="card-img-top" alt="International Shipping">
+          <div class="card-body">
+            <h5 class="fw-bold">International Shipping</h5>
+            <p>Reliable global shipping solutions with guaranteed safety and timely delivery.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service p-3">
+          <img src="https://images.pexels.com/photos/4244412/pexels-photo-4244412.jpeg" class="card-img-top" alt="Package Forwarding">
+          <div class="card-body">
+            <h5 class="fw-bold">Package Forwarding</h5>
+            <p>We forward packages worldwide with secure tracking and door-to-door delivery.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service p-3">
+          <img src="https://images.pexels.com/photos/262353/pexels-photo-262353.jpeg" class="card-img-top" alt="Customs Clearance">
+          <div class="card-body">
+            <h5 class="fw-bold">Customs Clearance</h5>
+            <p>Expert handling of customs regulations for smooth and efficient clearance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="my-5">
+    <h2 class="text-center mb-5 fw-bold">About Us</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg" class="about-img img-fluid" alt="About Company">
+      </div>
+      <div class="col-md-6">
+        <p>
+          Overseas Clearing and Forwarding (Co.) Ltd provides top-tier logistics, freight, and customs clearance services across East Africa and beyond.
+        </p>
+        <p>
+          With decades of experience, our dedicated team ensures reliable, timely, and secure handling of your goods.
+        </p>
+        <p><strong>Email:</strong> <a href="mailto:overseasjb@hotmail.com">overseasjb@hotmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="my-5">
+    <h2 class="text-center mb-5 fw-bold">Contact Us</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Head Office</h5>
+        <p>P.O Box 8192, Kampala, Uganda</p>
+        <p>Tel: 0414371888</p>
+        <p>Fax: 0392831330</p>
+        <p>Email: <a href="mailto:overseasjb@hotmail.com">overseasjb@hotmail.com</a></p>
+        <h5 class="mt-4">Branch Offices</h5>
+        <p>Malaba, Busia, Entebbe, Jinja & Rwakaka-Mbale</p>
+      </div>
+      <div class="col-md-6">
+        <h5>Associates</h5>
+        <p>P.O Box 80762, Mombasa (Kenya)</p>
+        <p>Tel: (011) 221440, 225037</p>
+        <p>Fax: (110) 316421</p>
+      </div>
+    </div>
+
+    <div class="my-4">
+      <h5>Our Location</h5>
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15957.1234!2d32.5822!3d0.3476" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <form class="mt-4">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message:</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Send Message</button>
+    </form>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Overseas Clearing and Forwarding (Co.) Ltd. All rights reserved.</p>
+  <div>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/256701507959" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('✅ Thank you for contacting us! We will get back to you soon.');
+    this.reset();
+  });
+</script>
 </body>
 </html>
+
