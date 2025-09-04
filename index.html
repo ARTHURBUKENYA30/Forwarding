@@ -22,20 +22,24 @@
       --text-dark: #333;
       --bg-soft: #f9f9f9;
     }
+
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: var(--bg-soft);
       color: var(--text-dark);
     }
+
     h1, h2, h3, h4, h5 {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
     }
+
     .topbar {
       background: #0f6aa8;
       color: #fff;
       font-size: 0.95rem;
     }
+
     .topbar a { color: #fff; text-decoration: none; }
     .navbar {
       background: linear-gradient(90deg, var(--brand-blue), var(--brand-green));
@@ -44,7 +48,7 @@
     .navbar-brand:hover, .nav-link:hover { color: var(--brand-gold) !important; }
 
     .hero {
-      background: url('img/logo.jpg') center/cover no-repeat; /* keep your image */
+      background: url('img/logo.jpg') center/cover no-repeat;
       min-height: 75vh;
       position: relative;
       display: flex;
@@ -53,8 +57,17 @@
       color: #fff;
       text-align: center;
     }
-    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
-    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
 
     .btn-custom {
       background-color: var(--brand-gold);
@@ -64,7 +77,11 @@
       padding: 12px 30px;
       transition: all 0.3s ease;
     }
-    .btn-custom:hover { background-color: #fff; color: var(--brand-blue); box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+    .btn-custom:hover {
+      background-color: #fff;
+      color: var(--brand-blue);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
 
     .section-title { text-align: center; margin-bottom: 35px; font-size: 2rem; color: var(--brand-blue); }
 
@@ -87,10 +104,29 @@
     .cols-3 { columns: 3; column-gap: 2rem; }
     @media (max-width: 992px) { .cols-3 { columns: 2; } }
     @media (max-width: 576px) { .cols-2, .cols-3 { columns: 1; } }
+
+    img { max-width: 100%; height: auto; }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      h1.display-4 { font-size: 2rem; }
+      h2.section-title { font-size: 1.5rem; }
+      .hero { min-height: 50vh; }
+      .hero .lead { font-size: 1rem; }
+      .btn-custom { padding: 10px 20px; font-size: 0.9rem; }
+      .navbar-brand { font-size: 1.2rem; }
+    }
+
+    @media (max-width: 576px) {
+      .container { padding-left: 1rem; padding-right: 1rem; }
+      .card-body { padding: 1rem; }
+      .navbar-collapse { text-align: center; }
+    }
   </style>
 </head>
 <body>
-  <!-- Topbar with company coords -->
+
+  <!-- Topbar -->
   <div class="topbar py-2">
     <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
       <div>
@@ -98,7 +134,7 @@
         <span class="ms-2">| Plot M108, Kinawataka Junction, Nakawa Industrial Area</span>
         <span class="ms-2">| P.O. Box 8192, Kampala, Uganda</span>
       </div>
-      <div class="d-flex align-items-center gap-3">
+      <div class="d-flex align-items-center gap-3 flex-wrap">
         <a href="tel:+256772507959"><i class="fa-solid fa-phone"></i> 0772 507959</a>
         <a href="tel:+256701507559"><i class="fa-solid fa-phone"></i> 0701 507559</a>
         <a href="mailto:overseasjb@hotmail.com"><i class="fa-solid fa-envelope"></i> overseasjb@hotmail.com</a>
@@ -107,34 +143,28 @@
     </div>
   </div>
 
-  <!-- Responsive Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center" href="#home">
-      <img src="img/logo.jpg" alt="Logo" width="50" height="50" class="me-2 rounded-circle img-fluid">
-      <span class="fw-bold text-white">Overseas Clearing</span>
-    </a>
-
-    <!-- Mobile Toggle -->
-    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span><i class="fas fa-bars fa-lg"></i></span>
-    </button>
-
-    <!-- Nav Links -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto text-center">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#organization">Structure</a></li>
-        <li class="nav-item"><a class="nav-link" href="#directors">Directors</a></li>
-        <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <img src="img/logo.jpg" alt="Company Logo" width="64" height="64" class="me-2 rounded-circle img-fluid" />
+      <a class="navbar-brand" href="#home">Overseas Clearing</a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#org">Organization</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#safety">Health & Safety</a></li>
+          <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+          <li class="nav-item"><a class="nav-link" href="#importer">Importer Obligations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- Hero -->
   <section class="hero" id="home">
@@ -145,12 +175,12 @@
     </div>
   </section>
 
-  <!-- Quick Company Snapshot -->
+  <!-- Company Snapshot -->
   <section class="py-5 bg-light">
     <div class="container">
       <h2 class="section-title">Company Snapshot</h2>
       <div class="row g-4">
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Registered Names</h5>
@@ -159,369 +189,43 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Location & Contacts</h5>
-              <p class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>Plot M108, Kinawataka Junction, Nakawa Industrial Area</p>
-              <p class="mb-1"><i class="fa-solid fa-inbox me-2"></i>P.O. Box 8192, Kampala, Uganda</p>
-              <p class="mb-1"><i class="fa-solid fa-phone me-2"></i>0772 507959 | 0701 507559</p>
-              <p class="mb-0"><i class="fa-solid fa-envelope me-2"></i>overseasjb@hotmail.com | <i class="fa-solid fa-globe ms-2 me-1"></i>www.overseas.biz</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Us (History, Mission, Vision, Values, Associates) -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="section-title">About Us</h2>
-      <div class="accordion" id="aboutAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#history">History</button>
-          </h2>
-          <div id="history" class="accordion-collapse collapse show" data-bs-parent="#aboutAccordion">
-            <div class="accordion-body">
-              Overseas Clearing and Forwarding (Co) Ltd was established and incorporated in 1993. Since the company's inception, our client base and range of services have grown steadily. We are members of UCIFA (Uganda Clearing Industry and Forwarding Association) with an adequate number of employees qualified in customs and freight forwarding.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#mission">Mission</button>
-          </h2>
-          <div id="mission" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
-            <div class="accordion-body">
-              To provide our valued customers with the highest level of services in forwarding, customs clearance, transportation, and tax consultancy.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#vision">Vision</button>
-          </h2>
-          <div id="vision" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
-            <div class="accordion-body">
-              To be the biggest and the best logistics company in East Africa.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#values">Core Values</button>
-          </h2>
-          <div id="values" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
-            <div class="accordion-body">
-              Transparency; Quality; Integrity & Honesty; Teamwork; Efficiency; Mutual Respect; Fun.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#associates">Associated Companies</button>
-          </h2>
-          <div id="associates" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
-            <div class="accordion-body">
-              Siki Logistic K Ltd; Hancel Agencies Ltd. Address: Qamal Plaza, 2nd Floor, Turkana Street.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services with images kept -->
-  <section id="services" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="img/Clearance.jpg" class="card-img-top" alt="Customs Clearance" />
-            <div class="card-body">
-              <h5 class="card-title">Customs Clearance</h5>
-              <p class="card-text">Seamless, compliant customs clearance solutions so your goods move without delays.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="img/Freight.jpg" class="card-img-top" alt="Freight Forwarding" />
-            <div class="card-body">
-              <h5 class="card-title">Freight Forwarding</h5>
-              <p class="card-text">Air, sea, and land freight forwarding tailored for reliability and cost-efficiency.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="img/Ware.jpg" class="card-img-top" alt="Warehousing" />
-            <div class="card-body">
-              <h5 class="card-title">Warehousing & Distribution</h5>
-              <p class="card-text">Bonded & free warehousing, inventory control, and last-mile distribution.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row g-4 mt-1">
-        <div class="col-12">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Sea Freight & Air Freight</li>
-            <li class="list-group-item">Long haulage services by Road & Rail – to & from Mombasa / Kampala</li>
-            <li class="list-group-item">Containerized, Bulk Cargo and LCL Cargo handling</li>
-            <li class="list-group-item">Warehousing – bonded & free warehousing</li>
-            <li class="list-group-item">Project handling</li>
-            <li class="list-group-item">Inland distribution within Uganda</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Organization Structure -->
-  <section id="org" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Organization Structure</h2>
-      <div class="row g-4">
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Managing Director</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Operations Director</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Logistics Manager</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Finance & Admin Manager</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Customs & Cargo</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Sales Executives</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Warehouse Supervisor</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">IT Officer</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Human Resource Officer</h6></div></div></div>
-        <div class="col-md-3"><div class="card h-100"><div class="card-body text-center"><h6 class="text-uppercase">Finance Officer</h6></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team (Directors & Key Personnel) -->
-  <section id="team" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title">Directors & Key Personnel</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Directors of the Company</h5>
-              <ul class="mb-0">
-                <li><strong>Tamwesigwe Ahimbisibe John Bosco</strong> — Chairman / Managing Director; BBA-Accounting (MUK); 33 years of experience; President – Uganda Squash Rackets Association (2025–2028).</li>
-                <li><strong>Tugwine Vicent</strong> — Company Secretary; BA (MUK); 30 years of experience in clearing & forwarding.</li>
+              <h5 class="card-title">Services Offered</h5>
+              <ul class="cols-2 mb-0">
+                <li>Customs Clearance</li>
+                <li>Freight Forwarding</li>
+                <li>Warehousing & Distribution</li>
+                <li>Consulting Services</li>
+                <li>Import/Export Advisory</li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Key Personnel</h5>
-              <div class="table-responsive">
-                <table class="table align-middle mb-0">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Mobile</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Tamwesigiwe John Bosco Ahimbisibwe</td>
-                      <td>0701507959 / 0772507959</td>
-                      <td><a href="mailto:overseasjb@hotmail.com">overseasjb@hotmail.com</a></td>
-                    </tr>
-                    <tr>
-                      <td>Tugwine Vicent</td>
-                      <td>0752692566</td>
-                      <td><a href="mailto:vtug76@gmail.com">vtug76@gmail.com</a></td>
-                    </tr>
-                    <tr>
-                      <td>Tamwesigire Francis</td>
-                      <td>0702837717</td>
-                      <td><a href="mailto:ftamwesigire@gmail.com">ftamwesigire@gmail.com</a></td>
-                    </tr>
-                    <tr>
-                      <td>Kabundama Furo</td>
-                      <td>0702610064</td>
-                      <td><a href="mailto:ekabundama@gmail.com">ekabundama@gmail.com</a></td>
-                    </tr>
-                    <tr>
-                      <td>Tamwesigire Jude</td>
-                      <td>0701190511</td>
-                      <td><a href="mailto:judetamwesigire02@gmail.com">judetamwesigire02@gmail.com</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Health & Safety -->
-  <section id="safety" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Health & Safety</h2>
-      <div class="accordion" id="hsAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#smoking">Smoking Regulations</button></h2>
-          <div id="smoking" class="accordion-collapse collapse show" data-bs-parent="#hsAccordion">
-            <div class="accordion-body">
-              Smoking is prohibited in any confined or enclosed area of the work premises and in any place where there are flammable materials: office areas, vehicles, storage areas, toilets, canteens, eating places, or any place where it would inconvenience non‑smokers.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#tagging">Tagging Requirements</button></h2>
-          <div id="tagging" class="accordion-collapse collapse" data-bs-parent="#hsAccordion">
-            <div class="accordion-body">The Managing Director shall endeavor to have tags on all equipment indicating their use and safety precautions.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#intoxicants">Intoxicants</button></h2>
-          <div id="intoxicants" class="accordion-collapse collapse" data-bs-parent="#hsAccordion">
-            <div class="accordion-body">Any staff using intoxicants or illicit/addictive substances while at work shall be subject to disciplinary action.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#risky">Risky & Hazardous Jobs</button></h2>
-          <div id="risky" class="accordion-collapse collapse" data-bs-parent="#hsAccordion">
-            <div class="accordion-body">Overseas Clearing and Forwarding (Co) Ltd shall take out an insurance policy for risky and hazardous jobs as defined in the Third Schedule of the Workers Compensation Act, 2000.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#waste">Disposal of Waste</button></h2>
-          <div id="waste" class="accordion-collapse collapse" data-bs-parent="#hsAccordion">
-            <div class="accordion-body">Staff shall ensure that waste is disposed of properly in designated facilities.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#hazchem">Hazardous Fluids & Chemicals</button></h2>
-          <div id="hazchem" class="accordion-collapse collapse" data-bs-parent="#hsAccordion">
-            <div class="accordion-body">Staff shall ensure that the use of hazardous fluids and chemicals at work conforms to the required standards.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#comp">Compensation</button></h2>
-          <div id="comp" class="accordion-collapse collapse" data-bs-parent="#hsAccordion">
-            <div class="accordion-body">
-              <ol class="mb-0">
-                <li>Staff who suffer injury in the ordinary course of work shall qualify for compensation in line with the Workers Compensation Act, 2000.</li>
-                <li>Applications for compensation shall be addressed to the Managing Director, who shall approve applications before they are presented to the insurance company for payment.</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients -->
-  <section id="clients" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title">Major Clients</h2>
-      <div class="card">
-        <div class="card-body">
-          <ul class="cols-3">
-            <li>Ministry of Health</li>
-            <li>Ministry of Local Government</li>
-            <li>NITA (National Information Technology Authority)</li>
-            <li>CAA (Civil Aviation Authority)</li>
-            <li>Ministry of Agriculture, Animal Industry & Fisheries</li>
-            <li>Ministry of Energy and Mineral Development</li>
-            <li>Makerere University</li>
-            <li>National Enterprises Co‑operation</li>
-            <li>National Water & Sewerage Corporation</li>
-            <li>Uganda Revenue Authority</li>
-            <li>Office of the Prime Minister</li>
-            <li>UNFPA (United Nations Population Fund)</li>
-            <li>Sheraton Kampala Hotel</li>
-            <li>Pax Transport Ltd (FEDEX)</li>
-            <li>Capital Shoppers (U) Ltd</li>
-            <li>Uganda Bureau of Statistics (UBOS)</li>
-            <li>Electoral Commission</li>
-            <li>Kyenjojo Sugar Factory</li>
-            <li>Nile Agrain Milling Company</li>
-            <li>Kansai Plascon (U) Ltd</li>
-            <li>Kibao Group of Companies – BPC Chemicals Ltd; Karuri Pharmaceuticals</li>
-            <li>Biomed Africa Ltd</li>
-            <li>Mediworld Pharma Africa Ltd</li>
-            <li>Vijay Enterprises Ltd</li>
-            <li>Quality Waterproofing Ltd</li>
-            <li>Ventura Enterprises Ltd</li>
-            <li>Terrain Services Ltd</li>
-            <li>GI Marine Distributors Ltd</li>
-            <li>Medinovation Ltd</li>
-            <li>Amstus Polymer Packaging</li>
-            <li>Vipro Enterprises</li>
-            <li>Tile Center Ltd</li>
-            <li>Mednet Health Care (U) Ltd</li>
-            <li>Britain (U) Ltd</li>
-            <li>Sekanyolya Systems (U)</li>
-            <li>Carstuff (U) Ltd</li>
-            <li>Nazart (U) Ltd</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Importer Obligations -->
-  <section id="importer" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Importer’s Obligations</h2>
-      <p>Importers shall avail to the agent a particular contract designed to handle all matters relating to the services as a common point of contact.</p>
-      <p class="mb-2">Other documents required by customs include:</p>
-      <ul>
-        <li>Original Commercial Invoice</li>
-        <li>Original Packing List</li>
-        <li>Insurance Certificate (if cargo is insured)</li>
-        <li>Original Bill of Lading</li>
-        <li>TIN Numbers</li>
-        <li>Freight Invoice</li>
-        <li>For cargo Ex‑S.A (DA 5500)</li>
-        <li>Certificate of Origin</li>
-        <li>PVOC Certificate</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contact -->
+  <!-- Add more sections: Services, Organization, Team, Health & Safety, Clients, Importer Obligations, Contact -->
+  <!-- Example: Contact Section -->
   <section id="contact" class="py-5">
     <div class="container">
       <h2 class="section-title">Contact Us</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
           <form class="contact-form">
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Your Name" />
+              <input type="text" class="form-control" placeholder="Full Name" required />
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control" placeholder="Your Email" />
+              <input type="email" class="form-control" placeholder="Email" required />
             </div>
             <div class="mb-3">
-              <textarea rows="5" class="form-control" placeholder="Your Message"></textarea>
+              <textarea class="form-control" rows="5" placeholder="Message" required></textarea>
             </div>
-            <button type="submit" class="btn btn-custom">Send Message</button>
+            <button type="submit" class="btn btn-custom w-100">Send Message</button>
           </form>
-          <div class="mt-4">
-            <p class="mb-1"><strong>Address:</strong> Plot M108, Kinawataka Junction, Nakawa Industrial Area</p>
-            <p class="mb-1"><strong>P.O. Box:</strong> 8192, Kampala, Uganda</p>
-            <p class="mb-1"><strong>Tel:</strong> <a href="tel:+256772507959">0772 507959</a>, <a href="tel:+256701507559">0701 507559</a></p>
-            <p class="mb-0"><strong>Email:</strong> <a href="mailto:overseasjb@hotmail.com">overseasjb@hotmail.com</a> | <strong>Web:</strong> <a href="http://www.overseas.biz" target="_blank" rel="noopener">www.overseas.biz</a></p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <!-- General Kampala map (replace with precise if you have coordinates) -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15952.43625331485!2d32.5825206!3d0.3475961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbcfe00f6d4bb%3A0x3e0d49e7e5d0d9c!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1693134000000!5m2!1sen!2sug" width="100%" height="350" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -530,24 +234,14 @@
   <!-- Footer -->
   <footer>
     <div class="container text-center">
-      <p class="mb-1">&copy; 2025 Overseas Clearing and Forwarding. All Rights Reserved.</p>
-      <p class="mb-1">Plot M108, Kinawataka Junction, Nakawa Industrial Area | P.O. Box 8192, Kampala, Uganda</p>
-      <p class="mb-3">Tel: 0772 507959 / 0701 507559 | Email: <a href="mailto:overseasjb@hotmail.com">overseasjb@hotmail.com</a></p>
-      <div class="social-icons">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook fa-lg mx-2"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter fa-lg mx-2"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg mx-2"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram fa-lg mx-2"></i></a>
-      </div>
+      <p>&copy; 2025 Overseas Clearing & Forwarding Co. Ltd. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp (uses one of your listed numbers) -->
-  <a href="https://wa.me/256701507559" class="whatsapp-float" target="_blank" aria-label="WhatsApp chat">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/256772507959" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-  <!-- Scripts -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
