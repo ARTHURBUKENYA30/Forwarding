@@ -74,19 +74,8 @@
       font-size: 2rem;
       color: #137dc5;
     }
-    .card {
-      border: none;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-    }
-    .contact-form input, .contact-form textarea {
-      border-radius: 10px;
-      border: 1px solid #ccc;
+    .accordion-button {
+      font-weight: 600;
     }
     footer {
       background: #222;
@@ -119,24 +108,22 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    
-       <img src="img/logo.jpg" alt="Logo" width="100" height="100" class="me-2 rounded-circle">
-  
-    
+    <img src="img/logo.jpg" alt="Logo" width="70" height="70" class="me-2 rounded-circle">
+    <a class="navbar-brand" href="#home">Overseas Clearing</a>
     <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
 
 <!-- Hero -->
 <section class="hero" id="home">
@@ -147,33 +134,40 @@
   </div>
 </section>
 
-<!-- Services -->
-<section id="services" class="py-5">
+<!-- About Us -->
+<section id="about" class="py-5 bg-light">
   <div class="container">
-    <h2 class="section-title">Our Services</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/Clearance.jpg" class="card-img-top" alt="Customs Clearance">
-          <div class="card-body">
-            <h5 class="card-title">Customs Clearance</h5>
-            <p class="card-text">Seamless customs clearance solutions to ensure your goods reach their destination without delays.</p>
+    <h2 class="section-title">About Us</h2>
+    <div class="accordion" id="aboutAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#history">History</button></h2>
+        <div id="history" class="accordion-collapse collapse show" data-bs-parent="#aboutAccordion">
+          <div class="accordion-body">
+            Overseas Clearing and Forwarding (Co) Ltd was established and incorporated in 1993. Since inception, both our client base and range of services have grown steadily. We are members of UCIFA (Uganda Clearing Industry and Forwarding Association) with adequate employees qualified in customs and freight forwarding.
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/Freight.jpg" class="card-img-top" alt="Freight Forwarding">  <div class="card-body">
-            <h5 class="card-title">Freight Forwarding</h5>
-            <p class="card-text">Air, sea, and land freight forwarding services designed to move your cargo efficiently worldwide.</p>
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#mission">Mission</button></h2>
+        <div id="mission" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+          <div class="accordion-body">
+            We provide our valued customers with the highest level of services in forwarding, customs clearance, transportation, and tax consultancy.
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/Ware.jpg" class="card-img-top" alt="Warehousing">   <div class="card-body">
-            <h5 class="card-title">Warehousing & Distribution</h5>
-            <p class="card-text">Secure storage and timely distribution of goods with advanced inventory management systems.</p>
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#vision">Vision</button></h2>
+        <div id="vision" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+          <div class="accordion-body">
+            Our vision is to be the biggest and the best in East Africa.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#values">Core Values</button></h2>
+        <div id="values" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+          <div class="accordion-body">
+            Transparency, Quality, Integrity & Honesty, Teamwork, Efficiency, Mutual Respect, and Fun.
           </div>
         </div>
       </div>
@@ -181,18 +175,75 @@
   </div>
 </section>
 
-<!-- About -->
-<section id="about" class="py-5 bg-light">
+<!-- Services -->
+<section id="services" class="py-5">
   <div class="container">
-    <h2 class="section-title">About Us</h2>
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <p>At Overseas Clearing and Forwarding, we pride ourselves on delivering efficient logistics and forwarding services tailored to meet client needs. With years of expertise, we ensure safe, timely, and affordable movement of goods across borders.</p>
-        <p>Our team of professionals is committed to customer satisfaction and innovative solutions in freight management, customs clearance, and distribution logistics.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="img/logo.jpg" class="card-img-top" alt="Customs Clearance"> </div>
-    </div>
+    <h2 class="section-title">Our Services</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Sea Freight & Air Freight</li>
+      <li class="list-group-item">Long haulage services by Road & Rail (to & from Mombasa/Kampala)</li>
+      <li class="list-group-item">Containerized, Bulk Cargo, and LCL Cargo handling</li>
+      <li class="list-group-item">Bonded & Free Warehousing</li>
+      <li class="list-group-item">Project Handling</li>
+      <li class="list-group-item">Inland Distribution within Uganda</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title">Directors & Key Personnel</h2>
+    <p><strong>Tamwesigiwe Ahimbisibe John Bosco</strong> – Chairman / Managing Director (BBA-Accounting MUK, 33 years of experience, President Uganda Squash Rackets Association 2025–28)</p>
+    <p><strong>Tugwine Vicent</strong> – Company Secretary (BA MUK, 30 years experience in clearing & forwarding)</p>
+    <p><strong>Other Key Personnel:</strong></p>
+    <ul>
+      <li>Tamwesigiwe John Bosco Ahimbisibwe – 0701507959 / 0772507959 – overseasjb@hotmail.com</li>
+      <li>Tugwine Vicent – 0752692566 – vtug76@gmail.com</li>
+      <li>Tamwesigire Francis – 0702837717 – ftamwesigire@gmail.com</li>
+      <li>Kabundama Furo – 0702610064 – ekabundama@gmail.com</li>
+      <li>Tamwesigire Jude – 0701190511 – judetamwesigire02@gmail.com</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Health & Safety -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="section-title">Health & Safety</h2>
+    <p>Smoking is prohibited in confined areas, vehicles, storage, toilets, canteens, eating places, or near flammable materials.</p>
+    <p>Tags are required on equipment for usage and safety precautions.</p>
+    <p>Staff using intoxicants are subject to disciplinary action.</p>
+    <p>Risky and hazardous jobs are insured per the Workers Compensation Act 2000.</p>
+    <p>Waste disposal must be done properly in designated facilities.</p>
+    <p>Hazardous fluids and chemicals must meet required standards.</p>
+    <p>Compensation is provided for injuries in the course of work, subject to MD approval.</p>
+  </div>
+</section>
+
+<!-- Clients -->
+<section id="clients" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title">Our Clients</h2>
+    <p>We proudly serve ministries, corporations, NGOs, and private companies including: Ministry of Health, Ministry of Local Government, NITA-U, Civil Aviation Authority, Makerere University, National Water & Sewerage Corporation, URA, Sheraton Kampala, FEDEX, UBOS, Kansai Plascon, Biomed Africa Ltd, Mediworld Pharma, and many more.</p>
+  </div>
+</section>
+
+<!-- Importer Obligations -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="section-title">Importer’s Obligations</h2>
+    <p>Importers shall avail to the agent a particular contract handling all matters relating to the services as a common point of contact. Documents required by customs include:</p>
+    <ul>
+      <li>Original Commercial Invoice</li>
+      <li>Original Packing List</li>
+      <li>Insurance Certificate (if insured)</li>
+      <li>Original Bill of Lading</li>
+      <li>TIN Numbers</li>
+      <li>Freight Invoice</li>
+      <li>Certificate of Origin</li>
+      <li>PVOC Certificate</li>
+    </ul>
   </div>
 </section>
 
